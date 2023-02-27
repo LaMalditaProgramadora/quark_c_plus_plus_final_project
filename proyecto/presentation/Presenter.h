@@ -28,6 +28,7 @@ private:
     void present_principal_menu();
     void present_quotation_history_menu();
     void present_new_quotation_menu();
+    void clearAuxData();
 
 public:
     Presenter();
@@ -49,6 +50,17 @@ Presenter::Presenter()
     unit_price = 0;
     quantity = 0;
     option = 0;
+}
+
+void Presenter::clearAuxData()
+{
+    id_number++;
+    quality = "";
+    sleeve_type = "";
+    collar_type = "";
+    cut_type = "";
+    unit_price = 0;
+    quantity = 0;
 }
 
 void Presenter::present_principal_menu()
@@ -148,8 +160,6 @@ void Presenter::present_new_quotation_menu()
             quotation = quotation_system->add_quotation(id_number, clothes, unit_price, quantity);
     }
 
-    id_number++;
-
     option = 0;
     while (option != 3)
     {
@@ -157,6 +167,19 @@ void Presenter::present_new_quotation_menu()
         screen->get_new_quotation_menu_result(quotation);
         cin >> option;
     }
+
+    clearAuxData();
+}
+
+void Presenter::clearAuxData()
+{
+    id_number++;
+    quality = "";
+    sleeve_type = "";
+    collar_type = "";
+    cut_type = "";
+    unit_price = 0;
+    quantity = 0;
 }
 
 void Presenter::present_menu()
