@@ -53,7 +53,6 @@ Quotation *QuotationSystem::add_quotation(int id_number, Clothes *clothes, doubl
 {
     if (clothes->get_stock() < quantity)
     {
-        cout << "ERROR: No se puede realizar una cotización sobre una cantidad de stock no disponible";
         return NULL;
     }
     Quotation *quotation = new Quotation(id_number, seller, clothes, unit_price, quantity);

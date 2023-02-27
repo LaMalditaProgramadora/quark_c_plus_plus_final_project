@@ -134,14 +134,20 @@ void Presenter::present_new_quotation_menu()
 
     clothes = quotation_system->find_clothes(quality, sleeve_type, collar_type, cut_type);
     quantity = 0;
-    while (quantity <= 0)
+    while (quantity <= 0 || quotation == NULL)
     {
         screen->clean();
+        if (quotation == NULL)
+        {
+            cout << "ERROR: No se puede realizar una cotización sobre una cantidad de stock no disponible" << endl;
+            cout << "-------------------------------------------------------------------" << endl;
+        }
         screen->get_new_quotation_menu_step_5_stock(clothes->get_stock());
         cin >> quantity;
+        if (quantity > 0)
+            quotation = quotation_system->add_quotation(id_number, clothes, unit_price, quantity);
     }
 
-    quotation = quotation_system->add_quotation(id_number, clothes, unit_price, quantity);
     id_number++;
 
     option = 0;
