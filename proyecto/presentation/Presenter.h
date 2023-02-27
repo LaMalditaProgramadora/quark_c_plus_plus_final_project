@@ -171,17 +171,6 @@ void Presenter::present_new_quotation_menu()
     clearAuxData();
 }
 
-void Presenter::clearAuxData()
-{
-    id_number++;
-    quality = "";
-    sleeve_type = "";
-    collar_type = "";
-    cut_type = "";
-    unit_price = 0;
-    quantity = 0;
-}
-
 void Presenter::present_menu()
 {
     option = 0;

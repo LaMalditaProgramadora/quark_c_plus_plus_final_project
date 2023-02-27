@@ -10,7 +10,7 @@ private:
 
 public:
     Pants(string code, string quality, int stock, string cut_type);
-    void calculate_unit_price(double &unit_price);
+    void calculate_unit_price(double &unit_price) override;
     string get_complete_name() override;
     bool equals(string quality, string sleeve_type, string collar_type, string cut_type) override;
 };
