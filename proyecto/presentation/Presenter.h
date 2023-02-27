@@ -124,6 +124,7 @@ void Presenter::present_new_quotation_menu()
     quality = option == 1 ? "Standard" : "Premium";
 
     option = 0;
+    unit_price = 0;
     while (unit_price <= 0)
     {
         screen->clean();
@@ -132,7 +133,7 @@ void Presenter::present_new_quotation_menu()
     }
 
     clothes = quotation_system->find_clothes(quality, sleeve_type, collar_type, cut_type);
-
+    quantity = 0;
     while (quantity <= 0)
     {
         screen->clean();
